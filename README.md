@@ -2,11 +2,13 @@ Hey and welcome!
 
 In order for the code to work there are some steps that needs to be taken.
 
-#1. First off, we need to install Node.js.
+## 1. First off, we need to install Node.js.
+
 Please head over to https://nodejs.org/en/ and follow the steps to install it.
 We will need it to create our project.
 
-#2. Dependancies
+## 2. Dependancies
+
 ** Body-Parser **
 First we install bodyParser, you can do so by typing 'npm i body-parser'
 in the terminal. The Body-parser module parses JSON buffer, string and URL encoded
@@ -26,6 +28,11 @@ To save time you can also install all of these at once typing 'npm i body-parser
 
 Our API calls will be made possible with Postman, a program that lets you handle and send data through the header.
 In order to install postman go to https://www.postman.com/downloads/ and follow the installation instructions
+
+### Start server
+
+Type in terminal:
+`npm start`
 
 ## API Documentation
 

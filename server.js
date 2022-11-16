@@ -7,12 +7,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 let  PORT = 8000;
 
-// To start the server
+// We tell the App which uses Express and bodyParser to listen to port 8000.
 app.listen(PORT, () => {
     console.log(`"Server running on port ${PORT}")`);
 });
 
-// API GROCIRIES WORKS
+// Gets the data we created. We choose to select all from transactions
+// but you can easily choose what data you want from which row.
 app.get("/api/transactions", (req, res, next) => {
     let sql = "select * from transactions";
     let groceries = [];
@@ -28,7 +29,7 @@ app.get("/api/transactions", (req, res, next) => {
       });
 });
 
-// API CARD  WORKS
+// Gets all the data from the card number in our transactions database.
 app.get("/api/card", (req, res, next) => {
     let sql = "SELECT transactions.card_number FROM transactions";
     let cards = [];
@@ -44,7 +45,8 @@ app.get("/api/card", (req, res, next) => {
       });
 });
 
-// Push the whole transaction when final purchase is done
+// Push the whole transaction when final purchase is done and takes care of
+// any errors we might expect. 
 app.post("/api/transactions/", (req, res, next) => {
     let errors=[]
     if (!req.body.item_name){
@@ -99,7 +101,7 @@ app.post("/api/transactions/", (req, res, next) => {
 })
 
 
-// Delete all items registrated to the given card WORKS
+// Delete all items registrated to the given card number
 app.delete("/api/transactions/:card_number", (req, res, next) => {
     db.run(
         'DELETE FROM transactions WHERE card_number = ?',
@@ -129,7 +131,7 @@ app.post("/api/populate", (req, res, next) => {
             "id" : this.lastID
         })
     });
-        // gets the current date WORKS
+        // gets all data linked to the current date the data was created.
     app.get("/api/day/:current_date", (req, res, next) => {
         let sql = "SELECT * FROM transactions WHERE current_date = ? "
         let params = [req.params.current_date]
