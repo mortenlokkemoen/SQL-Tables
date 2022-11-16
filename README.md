@@ -24,4 +24,18 @@ the SQL query language.
 
 To save time you can also install all of these at once typing 'npm i body-parser express sqlite3'.
 
-API DOCUMENTATION
+Our API calls will be made possible with Postman, a program that lets you handle and send data through the header.
+In order to install postman go to https://www.postman.com/downloads/ and follow the installation instructions
+
+## API Documentation
+
+| Name                 | Request type | Endpoint Body                                   |
+| -------------------- | ------------ | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+|                      |              | ITEM                                            |                                                                                                                                                                                                                |
+| Get an ITEM          | GET          | [http://localhost:8000/api/transactions]        |                                                                                                                                                                                                                |
+| Post a list of items | POST         | [http://localhost:8000/api/populate]            | { <br /> "item_name": "string", <br /> "category": "string, <br /> "price": "integer", <br /> "postnr": "integer"<br />"store_name": "text"<br />"location": "text"<br />"card_number": "integer<br /> <br/> } |
+|                      |              | CARD                                            |
+| Delete a card        | DELETE       | [http://localhost:8000/api/transactions/{1258}] |                                                                                                                                                                                                                |     |
+| Get a card           | GET          | [localhost:8000/api/card/]                      |
+| Get today            | GET          | [localhost:8000/api/day/{2022-11-15}]           |
+| GET between dates    | GET          | [localhost:8000/api/month/month/year]           |
